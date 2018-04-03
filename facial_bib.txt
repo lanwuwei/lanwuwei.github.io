@@ -1,0 +1,8 @@
+@inproceedings{he2013facial,
+  title={Facial expression recognition using deep Boltzmann machine from thermal infrared images},
+  author={He, Shan and Wang, Shangfei and Lan, Wuwei and Fu, Huan and Ji, Qiang},
+  booktitle={Affective Computing and Intelligent Interaction (ACII), 2013 Humaine Association Conference on},
+  pages={239--244},
+  year={2013},
+  organization={IEEE}
+}
