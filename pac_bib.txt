@@ -1,0 +1,8 @@
+@inproceedings{bai2014pac,
+  title={Pac: Taming tcp incast congestion using proactive ack control},
+  author={Bai, Wei and Chen, Kai and Wu, Haitao and Lan, Wuwei and Zhao, Yangming},
+  booktitle={Network Protocols (ICNP), 2014 IEEE 22nd International Conference on},
+  pages={385--396},
+  year={2014},
+  organization={IEEE}
+}

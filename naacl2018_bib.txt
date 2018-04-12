@@ -1,0 +1,6 @@
+@inproceedings{lan2018subword,
+  author     = {Lan, Wuwei and Xu, Wei},
+  title      = {The Importance of Subword Embeddings in Sentence Pair Modeling},
+  booktitle = {Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT)},
+  year       = {2018}
+} 
