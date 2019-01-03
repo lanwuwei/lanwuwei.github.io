@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)https://cocoxu.github.io/courses/5522_autum18.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>CSE 5522 Artificial Intelligence II: Advanced Techniques</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="./3521_sp19_files/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="./3521_sp19_files/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="https://cocoxu.github.io/bootstrap-3.2.0-dist/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://cocoxu.github.io/bootstrap-3.2.0-dist/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://cocoxu.github.io/bootstrap-3.2.0-dist/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://cocoxu.github.io/bootstrap-3.2.0-dist/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="https://cocoxu.github.io/bootstrap-3.2.0-dist/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+
+    <div class="container">
+
+<div id="Content">
+    <h1>CSE 5522 Artificial Intelligence II: Advanced Techniques</h1>
+
+
+<p>
+  Advanced concepts, techniques, and applications of artificial intelligence, including knowledge representation, learning, natural language understanding, and vision.
+</p>
+    </div>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Details</div>
+
+<ul class="list-group">
+<li class="list-group-item">Wednesday &amp; Friday, 2:20 - 3:40pm </li>
+<li class="list-group-item">Place: Caldwell 120</li>
+<li class="list-group-item">Instructor: <a href="http://web.cse.ohio-state.edu/~weixu/">Wei Xu</a> (Office Hours: Friday 4:00-5:00pm, Dreese 495) </li>
+<li class="list-group-item">TA: <a href="https://lanwuwei.github.io/">Wuwei Lan</a> (Office Hours: Tuesday 11:00am-11:59am, Baker 480C) </li>
+
+</ul>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">Textbook:</div>
+<ul class="list-group">
+  <li class="list-group-item">Stuart Russell and Peter Norvig.  <i><a href="http://aima.cs.berkeley.edu/">Artificial Intelligence: A Modern Approach (3rd Edition)</a></i>, Prentice Hall, 2009.
+  </li><li class="list-group-item">(There will be other readings as well)</li>
+</ul></div>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Grading</div>
+
+  <div class="panel-body">
+    <p>
+      </p><h4>Participation (5%)</h4>
+      You will receive credit for engaging in class discussion, asking and answering questions related to the homework on Piazza online discussion board. 
+      
+      <h4>Homeworks (15%)</h4>      
+      Written homeworks will be very short (one or two exam-style questions) and will be graded in a good/mediocre/incomplete basis. You should be prepared to do regular work each week to keep up with the material and the assignments. Homeworks due before class on day X will include topics we will discuss in class on day X. We will talk about solution in class if people have questions. Homework assignments may <b>NOT</b> be turned in late. Homeworks are <b>NOT</b> accepted by email. There will be 1 grace homework grade per semester, that is, each student receiving full credit for the lowest or a missing homework grade.
+      
+      
+      <h4>Projects (30%)</h4>
+      Programming projects will be in Python, and should be submitted to <a href="https://carmen.osu.edu/">Carmen</a> by 11:59pm on the day it is due (unless otherwise instructed).  Each student will have 3 flexible days to turn in late programming projects throughout the semester.  As an example, you could turn in the first project 2 days late and the second project 1 day late without any penalty.  After that you will loose 20% for each day the project submission is late. Please email your code to the instructor in case there are any technical issues with submission.
+
+      <h4>Midterm (20%)</h4>
+      Midterm exam will be close book and notes.
+      
+      <h4>Final Exam (30%)</h4>
+      Final exam will be close book and notes. 
+      
+      <br>
+      <br>
+      
+      <b>Grading Scale</b>: Numerical grades will be mapped to letter grades using the standard OSU policy: 93-100 (A), 90-92.9 (A-), 87-89.9 (B+), 83-86.9 (B), 80-82.9 (B-), 77-79.9 (C+), 73-76.9 (C), 70-72.9 (C-), 67-69.9 (D+), 60-66.9 (D), below 60 (E). These cutoffs represent grade minimums. We may adjust grades upward based on class grade distribution curve.
+      <br>
+      <br>      
+      <b>Regrade Policy</b>: If you believe an error has been made in the grading of your exam, you may resubmit it for a regrade - submit a detailed explanation of which problems you think we marked incorrectly and why. Because we will examine your entire submission in detail, your grade can go up or down as a result of a regrade request.
+      <br>
+      <br>
+      <b>Drop or Withdraw</b>: detailed OSU policy and instructions <a href="http://advising.osu.edu/drop_class.shtml">here</a> 
+    <p></p>
+  </div>
+</div>
+
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Resources</div>
+
+  <div class="panel-body">
+    <list>
+      <li><a href="https://piazza.com/class/jkhrwmipgno194"><b>Piazza</b></a><b> (QA, discussion, and announcements)</b> </li>
+      <li><a href="https://carmen.osu.edu/"><b>Carmen</b></a> (project submission and restricted resources)</li>
+    </list>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Academic Integrity</div>
+
+  <div class="panel-body">
+    <list>
+      Any assignment or exam that you hand in must be your own work (with the exception of group projects). However, talking with others to better understand the material is strongly encouraged. Copying a solution or letting someone copy your solution is cheating.  Everything you hand in must be your own words.  Code you hand in must be written by you, with the exception of any code provided as part of the assignment.  <a href="http://www-edlab.cs.umass.edu/cs230/weeks/w01/moss-in-practice.pdf">MOSS (Measure of Software Similarity)</a> will be used routinely to detect plagiarism on programming assignments. Any collaboration during an exam is considered cheating.  Any student who is caught cheating will be reported to the Committee on Academic Misconduct.  Please don't take a chance - if you are having trouble understanding the material, let us know (asking on Piazza, in class or during office hours), and we will be happy to help.
+    </list>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Programming Projects</div>
+
+  <div class="panel-body">
+    <list>
+      <li><a href="https://cocoxu.github.io/courses/5522_hw/project0.html">Project 0 - Unix/Python/Autograder Tutorial</a> (optional)</li>
+      <li><a href="https://cocoxu.github.io/courses/5522_hw/project1.html">Project 1 - Search </a> (optional)</li>
+      <li><a href="https://cocoxu.github.io/courses/5522_hw/project2.html">Project 2 - Multi-Agent Search </a> (optional)</li>
+      <li><a href="https://cocoxu.github.io/courses/5522_hw/project3.html">Project 3 - Reinforcement Learning </a> (due 10/9) </li>
+      <li><a href="https://cocoxu.github.io/courses/5522_hw/project4.html">Project 4 - Ghostbusters</a> (due 11/9) </li>
+    </list>
+  </div>
+</div>
+
+
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Homework Assignments (subject to change as the autumn 2018 term progresses.)</div>
+
+  <div class="panel-body">
+    <list>
+      <!-- <li><a href='5522_hw/CSE_5522_hw0.pdf'>Background Survey (will hand out in-class on 8/22)</li> -->
+      <li><a href="https://cocoxu.github.io/courses/5522_hw/CSE_5522_hw0.pdf"> Homework 0</a> - Math and Python Review (due 8/29)</li>
+      <li><a href="https://cocoxu.github.io/courses/5522_hw/CSE_5522_hw1a.pdf">Homework 1a</a> - A* Graph vs. Tree Search (optional)</li>
+      <li><a href="https://cocoxu.github.io/courses/5522_hw/CSE_5522_hw1.pdf">Homework 1</a> - A* Search and Minimax (due 9/7)</li>
+      <li><a href="https://cocoxu.github.io/courses/5522_hw/CSE_5522_hw2.pdf">Homework 2</a> - Markov Decision Processes (due 9/21)</li>
+      <li><a href="https://cocoxu.github.io/courses/5522_hw/CSE_5522_hw3.pdf">Homework 3</a> - Reinforcement Learning: Q-learning (due 9/28)</li>
+      <li><a href="https://cocoxu.github.io/courses/5522_hw/CSE_5522_hw4.pdf">Homework 4</a> - Reinforcement Learning: Feature-based Representations (optional; up to 2% bonus, if submit in-class 10/5 or 10/10)</li>
+      <li><a href="https://cocoxu.github.io/courses/5522_hw/CSE_5522_hw5.pdf">Homework 5</a> - Probability Review (optional)</li>
+      <li><a href="https://cocoxu.github.io/courses/5522_hw/CSE_5522_hw6.pdf">Homework 6</a> - Hidden Markov Models (due 10/31)</li>
+      <li><a href="https://cocoxu.github.io/courses/5522_hw/CSE_5522_hw7.pdf">Homework 7</a> - Bayes Nets (due 11/16)</li>
+      <li><img src="./3521_sp19_files/new_1.gif" alt="new"> <a href="https://cocoxu.github.io/courses/5522_hw/CSE_5522_hw8.pdf">Homework 8</a> - Naive Bayes (optional)</li>
+      <br>
+      <li><a href="http://inst.eecs.berkeley.edu/~cs61b/fa14/ta-materials/apps/ab_tree_practice/">Interactive Practice</a> - Alpha-Beta Pruning</li>
+      <li><a href="https://cocoxu.github.io/courses/5522_hw/prac_final.pdf">Example Exam</a> - MDPs, Reinforcement Learning, Markov Model, HMM, Bayes Nets</li>
+    </list>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Anonymous Feedback</div>
+  <div class="panel-body">
+    <list>
+      <a href="https://goo.gl/forms/iV3rOU6MzarlxXEr1">https://goo.gl/forms/iV3rOU6MzarlxXEr1</a>
+    </list>
+  </div>  
+</div>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Schedule (subject to change as the autumn 2018 term progresses.) </div>
+
+  <!-- Table -->
+  <table class="table">
+      <thead>
+	<tr>
+	  <th>Date</th>
+	  <th>Topic</th>
+	  <th>Required Reading</th>
+	  <th>Suggested Reading</th>
+	</tr>
+      </thead>
+    <tbody><tr>
+      <td>8/22</td>
+      <td><a href="https://cocoxu.github.io/courses/5522_slides/introduction.pdf">Course Overview</a>, Reinforcement Learning in NLP Research - Guest Lecture by <a href="http://aritter.github.io/">Alan Ritter</a></td>
+      <td>3.1-3.4</td>
+      <td><a href="https://blogs.microsoft.com/ai/divide-conquer-microsoft-researchers-used-ai-master-ms-pac-man/">Microsoft Ms. PacMan</a></td>
+      
+    </tr><tr>
+      <td>8/24</td>
+      <td><a href="https://cocoxu.github.io/courses/5522_slides/search_combined.pdf">Search Review</a></td>
+      <td>3.5, 3.6</td>
+      <td><a href="https://en.wikipedia.org/wiki/Pancake_sorting">Pancake Sorting</a><a></a></td>
+      
+    </tr>
+   <tr>
+      <td>8/29</td>
+      <td><a href="https://cocoxu.github.io/courses/5522_slides/advesarial_search.pdf">Game Playing 1 - Minimax</a> (HW0 due)</td>
+      <td>5.1, 5.2, 5.3, 5.4</td>
+      <td><a href="https://www.theatlantic.com/technology/archive/2017/07/marion-tinsley-checkers/534111/">How Checkers was Solved</a></td>
+      
+    </tr>
+    <tr>
+      <td>8/31</td>
+      <td><a href="https://cocoxu.github.io/courses/5522_slides/expectimax_utilities.pdf">Game Playing 2 - Expectimax and Utilities</a></td>
+      <td>5.5, 13.1, 13.2, 16.1, 16.2, 16.3</td>
+      <td>Rosen's <a href="http://web.cs.ucla.edu/~rosen/161/notes/alphabeta.html">note</a> on Alpha Beta Pruning</td>
+      
+    </tr>
+    <tr>
+      <td>9/5</td>
+      <td><a href="https://cocoxu.github.io/courses/5522_slides/expectimax_utilities.pdf">Utilities (cont')</a> and homework recitation</td>
+      <td></td>
+      <td></td>
+      
+    </tr>
+     <tr>
+      <td></td>
+      <td><b>Reinforcement Learning</b></td>
+      <td></td>
+      <td></td>
+      
+    </tr>
+    <tr>
+      <td>9/7</td>
+      <td><a href="https://cocoxu.github.io/courses/5522_slides/mdp1.pdf">Reinforcement Learning 1 - Markov Decision Processes</a> (HW1 due)</td>
+      <td>17.1, 17.2</td>
+      <td></td>
+      
+    </tr>
+    <tr>
+      <td>9/12</td>
+      <td><a href="https://cocoxu.github.io/courses/5522_slides/mdp2.pdf">Reinforcement Learning 2 - Value Iteration and Policy Iteration</a></td>
+      <td>17.3</td>
+      <td>Real-life <a href="https://stats.stackexchange.com/questions/145122/real-life-examples-of-markov-decision-processes">examples</a> of Markov Decision Processes</td>
+      
+    </tr>
+    <tr>
+      <td>9/14</td>
+      <td>drop deadline</td>
+      <td></td>
+      <td></td>
+      
+    </tr>
+    <tr>
+      <td>9/14</td>
+      <td><a href="https://cocoxu.github.io/courses/5522_slides/mdp2.pdf">Policy Iteration (cont')</a></td>
+      <td></td>
+      <td><a href="https://simple.wikipedia.org/wiki/System_of_linear_equations">system of linear equations</a>, <a href="https://www.quora.com/Are-there-any-good-resources-or-tutorials-for-dynamic-programming-DP-besides-the-TopCoder-tutorial">dynamic programming</a></td>
+      
+    </tr>
+    <tr>
+      <td>9/19</td>
+      <td><a href="https://cocoxu.github.io/courses/5522_slides/rl1.pdf">Reinforcement Learning 3 - Temporal Difference Learning</a></td>
+      <td>21.1, 21.2, 21.3</td>
+      <td><a href="https://deepmind.com/research/alphago/">Google AlphaGo</a></td>
+      
+    </tr>
+    <tr>
+      <td>9/21</td> 
+      <td><a href="https://cocoxu.github.io/courses/5522_slides/rl1.pdf">Reinforcement Learning 4 - Q-Learning</a> (HW2 due)</td>
+      <td>21.1, 21.2, 21.3</td>
+      <td>Reinforcement learning for <a href="https://papers.nips.cc/paper/3151-an-application-of-reinforcement-learning-to-aerobatic-helicopter-flight.pdf">autonomous helicopter flying</a></td>
+      
+    </tr>
+    <tr>
+      <td>9/26</td> 
+      <td><a href="https://cocoxu.github.io/courses/5522_slides/probability.pdf">Probability Review</a> (Engineering Expo)</td>
+      <td>13.3, 13.4, 13.5, 13.6</td>
+      <td>Andrew Moore's <a href="http://www.cs.cmu.edu/~./awm/tutorials/prob18.pdf">tutorial</a> and Jean Walrand's <a href="http://inst.eecs.berkeley.edu/~cs70/sp16/notes/n25.pdf">note</a> on Probability </td>
+      
+    </tr>
+    <tr>
+      <td>9/28</td> 
+      <td><a href="https://cocoxu.github.io/courses/5522_slides/rl2.pdf">Reinforcement Learning 5 - Function Approximation</a> (HW3 due)</td>
+      <td>21.4</td>
+      <td>Sutten &amp; Barto's <a href="http://incompleteideas.net/book/bookdraft2018jan1.pdf"> reinforcement learning book</a> (Ch. 5, 6, 13)</td>
+      
+    </tr>
+    <tr>
+      <td>10/3</td> 
+      <td><a href="https://cocoxu.github.io/courses/5522_slides/rl3.pdf">Reinforcement Learning 6 - Deep Q-Learning and Policy Gradient</a></td>
+      <td>21.5, 21.6</td>
+      <td><a href="https://www.nature.com/articles/nature14236">Deep Q-Learning</a></td>
+      
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Reasoning Under Uncertainty</b></td>
+      <td></td>
+      <td></td>
+      
+    </tr>
+    <tr>
+      <td>10/5</td> 
+      <td><a href="https://cocoxu.github.io/courses/5522_slides/midterm.pdf"> Midterm Review</a>, <a href="https://cocoxu.github.io/courses/5522_slides/markov.pdf">Markov Models</a></td>
+      <td>15.1, 15.2</td>
+      <td></td>
+      
+    </tr>
+    <tr>
+      <td>10/9</td>
+      <td>P3 due</td>
+      <td></td>
+      <td></td>
+      
+    </tr>
+    <tr>
+      <td>10/10</td> 
+      <td><a href="https://cocoxu.github.io/courses/5522_slides/hmm.pdf">Hidden Markov Models 1 - Forward algorithm and robot localization</a></td>
+      <td>15.1, 15.2</td>
+      <td></td>
+      
+    </tr>
+    <tr>
+      <td>10/12</td>
+      <td>no class (fall break)</td>
+      <td></td>
+      <td></td>
+      
+    </tr>
+    <tr>
+      <td>10/17</td>
+      <td>Midterm (in class - Search, Game, Utilities, MDPs, RL)  </td>
+      <td></td>
+      <td></td>
+      
+    </tr>   
+    <tr>
+      <td>10/19</td> 
+      <td><a href="https://cocoxu.github.io/courses/5522_slides/hmm2.pdf">Hidden Markov Models 2 - Particle filtering</a> [<a href="https://cocoxu.github.io/courses/5522_slides/CSE_5522_notes_hmm.pdf">lecture notes</a>]</td>
+      <td>15.3, 15.5</td>
+      <td></td>
+      
+    </tr>   
+    <tr>
+      <td>10/24</td> 
+      <td><a href="https://cocoxu.github.io/courses/5522_slides/hmm2.pdf">Hidden Markov Models (cont') and Speech Recognition </a></td>
+      <td>15.3, 15.5</td>
+      <td>Haytham Fayek's <a href="https://haythamfayek.com/2016/04/21/speech-processing-for-machine-learning.html">tutorial</a> on Speech Processing</td>
+      
+    </tr>  
+    <tr>
+      <td>10/26</td> 
+      <td><a href="https://cocoxu.github.io/courses/5522_slides/bn.pdf">Bayes Nets 1 - Probabilistic Representations</a></td>
+      <td>14.1, 14.2</td>
+      <td></td>
+      
+    </tr>
+    <tr>
+      <td>10/26</td>
+      <td>withdraw deadline</td>
+      <td></td>
+      <td></td>
+      
+    </tr> 
+    <tr>
+      <td>11/7</td> 
+      <td><a href="https://cocoxu.github.io/courses/5522_slides/bn2.pdf">Bayes Nets 2 - D-Seperation</a> [<a href="https://cocoxu.github.io/courses/5522_slides/CSE_5522_notes_bn.pdf">lecture notes</a>]</td>
+      <td>14.1, 14.2</td>
+      <td>Olivier Chapelle's <a href="https://www.youtube.com/watch?v=gvGfpc7dtMg&amp;t=1745s">talk</a> on Bayesian Network Click Model for Web Search</td>
+      
+    </tr>
+    <tr>
+      <td>11/9</td>
+      <td><a href="https://cocoxu.github.io/courses/5522_slides/bn3.pdf">Bayes Nets 3 - Inference</a> [<a href="https://cocoxu.github.io/courses/5522_slides/CSE_5522_notes_bn2.pdf">lecture notes</a>] (P4 due)</td>
+      <td>14.4</td>
+      <td><a href="https://ermongroup.github.io/cs228-notes/"> Stanford CS228:</a> Probabilistic Graphical Models</td>
+      
+    </tr>
+    <tr>
+      <td>11/14</td>
+      <td><a href="https://cocoxu.github.io/courses/5522_slides/bn4.pdf">Bayes Nets 4 - Sampling</a> </td>
+      <td>14.5</td>
+      <td>David Blei's <a href="https://www.youtube.com/watch?v=FkckgwMHP2s">talk</a> on Topic Models and User Behavior</td>
+      
+    </tr> 
+    <tr>
+      <td></td>
+      <td><b>Machine Learning and Special Topics</b></td>
+      <td></td>
+      <td></td>
+      
+    </tr>
+    <tr>
+      <td>11/16</td>
+      <td><a href="https://cocoxu.github.io/courses/5522_slides/naive_bayes.pdf"> Naive Bayes</a> (HW7 due)</td>
+      <td>20.1, 20.2</td>
+      <td></td>
+    </tr>  
+    <tr>
+      <td>11/21</td>
+      <td>no class (thanksgiving)</td>
+      <td></td>
+      <td></td>
+      
+    </tr> 
+    <tr>
+      <td>11/23</td>
+      <td>no class (Columbus day)</td>
+      <td></td>
+      <td></td>
+      
+    </tr>  
+    <tr>
+      <td>11/28</td>
+      <td><a href="https://cocoxu.github.io/courses/5522_slides/naive_bayes.pdf">Naive Bayes (cont')</a> [<a href="https://cocoxu.github.io/courses/5522_slides/CSE_5522_notes_naivebayes.pdf">lecture notes</a>]</td>
+      <td></td>
+      <td><a href="https://cocoxu.github.io/courses/5522_slides/Shimodaira_note07.pdf">Text Classification using Naive Bayes</a> by Hiroshi Shimodaira</td>
+      
+    </tr>       
+    <tr>
+      <td>11/30</td>             
+      <td><img src="./3521_sp19_files/new_1.gif" alt="new"> <a href="https://cocoxu.github.io/courses/5522_slides/cv.pdf">Computer Vision 1 - Applications</a> </td>
+      <td>18.6</td>
+      <td><a href="https://www.engadget.com/2016/07/13/behind-facebooks-efforts-to-make-its-site-accessible-to-all/">Facebook Accessibility</a></td>
+      
+    </tr>    
+    <tr>
+      <td>12/5</td> 
+      <td><img src="./3521_sp19_files/new_1.gif" alt="new"> <a href="https://cocoxu.github.io/courses/5522_slides/final.pdf"> Final Review</a>, <a href="https://cocoxu.github.io/courses/5522_slides/cv.pdf">Computer Vision 2 - Deep Neural Networks and Visualization</a></td>
+      <td>20.1, 20.2.1, 20.2.2</td>
+      <td><a href="https://research.googleblog.com/2015/06/inceptionism-going-deeper-into-neural.html">Google DeepDream</a></td>
+      
+    </tr>
+    <tr>
+      <td>12/12 12:00-1:45pm</td>
+      <td>Final Exam (close book and notes)</td>
+      <td></td>
+      <td></td>
+      
+    </tr>
+    <tr>
+      <td>9/5</td>
+      <td><a href="http://web.cse.ohio-state.edu/lair/seminars.html">AI Seminar</a> by Wuwei Lan, 4pm in Dreese 263 (optional)</td>
+      <td></td>
+      <td><a href="https://arxiv.org/abs/1806.04330">Neural Networks for Sentence Pair Modeling</a></td>
+      
+    </tr>
+    <tr>
+      <td>9/18</td>
+      <td><a href="https://cse.osu.edu/events/2018/09/guest-speaker-eunsol-choi">Guest Speaker - Eunsol Choi</a>, 4pm in Dreese 480 (optional)</td>
+      <td></td>
+      <td><a href="https://arxiv.org/abs/1806.04330">Ultra-fine Entity Typing</a></td>
+      
+    </tr>
+    <tr>
+      <td>9/19</td>
+      <td><a href="https://cse.osu.edu/events/2018/09/guest-speaker-mark-yatskar">Guest Speaker - Mark Yatskar</a>, 4:30pm in Dreese 480 (optional)</td>
+      <td></td>
+      <td></td>
+      
+    </tr>
+    <tr>
+      <td>10/31</td>
+      <td>NLP Research - Guest Lecture by <a href="https://www.asc.ohio-state.edu/elsner.14/">Micha Elsner</a> (HW6 due)</td>
+      <td></td>
+      <td></td>
+      
+    </tr> 
+    <tr>
+      <td>11/2</td>
+      <td>Speech Research - Guest Lecture by <a href="http://massey-plantinga.com/">Peter Plantinga</a></td>
+      <td></td>
+      <td></td>
+      
+    </tr> 
+    <tr>
+      <td>11/7</td>
+      <td><a href="http://web.cse.ohio-state.edu/lair/seminars.html">AI Seminar</a> by Mounica Maddela, 4pm in Dreese 263 (optional)</td>
+      <td></td>
+      <td><a href="https://cocoxu.github.io/publications/EMNLP2018_neural_ranking_and_word_complexity_lexicon_preprint.pdf">A Word-Complexity Lexicon and A Neural Readability Ranking Model for Lexical Simplification</a></td>
+      
+    </tr>  
+
+
+    
+  </tbody></table>
+</div>
+
+
+</div> <!-- End Content -->
+
+
+    <script src="./3521_sp19_files/bootstrap-min.js"></script>
+
+  
+
+</body></html>
