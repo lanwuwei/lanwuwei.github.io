@@ -1,0 +1,131 @@
+/* Styles for CSE 3521 website */
+
+/** General styles **/
+
+.container.first-below-navbar {
+    margin-top: 55px;
+}
+.code_snippet {
+    margin-left: 20px;
+}
+.footer {
+    text-align: center;
+    font-size: 10px;
+    font-style: italic;
+    color: #555555;
+}
+
+#homework-list ul {
+    padding-left:0px;
+}
+#homework-list li {
+    display: block;
+}
+#homework-list li a {
+    display:block;
+    width:100%;
+    padding-top:10px;
+    padding-bottom:10px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+    background: #fff;
+}
+#homework-list li a.darkened {
+    background: #eee;
+}
+
+.homework-title {
+    text-align:center;
+}
+
+.project ol li {
+    margin-top:15px;
+}
+
+.hw5-img-container {
+    text-align:center;
+    width:100%;
+}
+
+/** End general styles **/
+
+/** Homepage-specific styles **/
+
+#homepage #course-info {
+    margin-top: 75px;
+    float: left;
+    width: 60%;
+    padding-left: 50px;
+}
+#homepage #course-info td.field {
+    font-weight:bold;
+}
+#homepage #course-info td.value {
+    padding-left: 10px;
+}
+
+#homepage #cat-box {
+    margin-top: 55px;
+    float: left;
+    width: 40%;
+}
+
+#homepage #summary {
+    clear:both;
+    padding-top: 25px;
+}
+
+#homepage #schedule {
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+}
+#homepage #schedule td,#homepage #schedule th {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#homepage #schedule td.break {
+    font-style: italic;
+    background: #dddddd;
+    text-align: center;
+}
+#homepage #schedule .date {
+    width: 80px;
+    text-align: center;
+}
+#homepage #schedule .slides {
+    width: 80px;
+    text-align: center;
+}
+#homepage #schedule .homework {
+    width: 160px;
+    text-align: center;
+    overflow: wrap;
+}
+#homepage #schedule .further {
+    width: 300px;
+    overflow: wrap;
+    padding-left:20px;
+    text-indent:-10px;
+}
+#homepage #schedule .topic {
+    width: 300px;
+    overflow: wrap;
+}
+#homepage #schedule .topic .sub-resources {
+    padding-left:30px;
+}
+
+#homepage .grader_row td.value {
+    padding-top: 25px;
+}
+#homepage .grader_row td.field {
+    padding-top: 25px;
+}
+#homepage .grader_row #second_grader {
+    margin-top: 10px;
+}
+
+/** End homepage-specific styles **/
