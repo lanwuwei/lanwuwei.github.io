@@ -1,0 +1,304 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <title>OSU CSE 3521 Au17</title>
+
+        <!-- Bootstrap -->
+        <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="../bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
+
+        <!-- Page-specific styles -->
+        <link rel="stylesheet" href="../styles.css" type="text/css" />
+    </head>
+
+    <body id="homework0">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="../index.html">CSE 3521 (Autumn 2017)</a>
+                </div>
+                <div id="navbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="https://osu.instructure.com/courses/26510">Carmen</a></li>
+                        <li><a href="../resources/syllabus.pdf">Syllabus</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Homework <span class="caret"></span></a>
+                            <div id="homework-list" class="dropdown-menu">
+                                <ul>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="https://osu-cse-3521.slack.com">Slack</a></li>
+                        <li><a href="https://app.tophat.com/e/827255">TopHat</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+<div class="container first-below-navbar">
+
+<div class="homework-title">
+    <h3>Homework 0: Python Tutorial</h3>
+</div>
+
+<h4><a name="Autograding"></a>Autograding</h4>
+<!--<p>All projects in this course will be autograded after you submit your code through the edX website. For all projects you can submit as many times as you like until the deadline. Every project's release includes its autograder for you to run yourself. This is the recommended, and fastest, way to test your code, but keep in mind you need to submit into the edX system to get your grade registered.</p>-->
+<p>Some of your programming assignments in this course will be automatically graded.  To get you familiarized with this process and with Python, please code, test, and submit solutions for three questions.</p>
+<p>You can download all of the files for this homework as a zip archive: <a href="../resources/0-tutorial.zip">0-tutorial.zip</a>. Unzip this file and examine its contents:</p>
+<div class="code_snippet">
+<pre>[name.no@stdlinux ~]$ unzip 0-tutorial.zip
+[name.no@stdlinux ~]$ cd 0-tutorial
+[name.no@stdlinux ~/0-tutorial]$ ls
+addition.py
+autograder.py
+buyLotsOfFruit.py
+grading.py
+projectParams.py
+shop.py
+shopSmart.py
+testClasses.py
+testParser.py
+test_cases
+textDisplay.py
+tutorialTestClasses.py
+util.py
+</pre>
+</div>
+<p>This contains a number of files you'll edit or run:</p>
+<ul>
+<li><code>addition.py</code>: source file for question 1</li>
+<li><code>buyLotsOfFruit.py</code>: source file for question 2</li>
+<li><code>shop.py</code>: source file for question 3</li>
+<li><code>shopSmart.py</code>: source file for question 3</li>
+<li><code>autograder.py</code>: autograding script (see below)</li>
+</ul>
+<p>and others you can ignore:</p>
+<ul>
+<li><code>test_cases</code>: directory contains the test cases for each question</li>
+<li><code>grading.py</code>: autograder code</li>
+<li><code>testClasses.py</code>: autograder code</li>
+<li><code>textDisplay.py</code>: autograder code</li>
+<li><code>util.py</code>: autograder code</li>
+<li><code>tutorialTestClasses.py</code>: test classes for this particular project</li>
+<li><code>projectParams.py</code>: project parameters</li>
+</ul>
+<p>The command <code>python autograder.py</code> grades your solution to all three problems. Running it before editing any files produces a page or two of output:</p>
+<div class="code_snippet">
+<pre>[name.no@stdlinux ~/0-tutorial]$ python autograder.py 
+Starting on 1-21 at 23:39:51
+
+Question q1
+===========
+*** FAIL: test_cases/q1/addition1.test
+*** 	add(a,b) must return the sum of a and b
+*** 	student result: "0"
+*** 	correct result: "2"
+*** FAIL: test_cases/q1/addition2.test
+*** 	add(a,b) must return the sum of a and b
+*** 	student result: "0"
+*** 	correct result: "5"
+*** FAIL: test_cases/q1/addition3.test
+*** 	add(a,b) must return the sum of a and b
+*** 	student result: "0"
+*** 	correct result: "7.9"
+*** Tests failed.
+
+### Question q1: 0/1 ###
+
+
+Question q2
+===========
+*** FAIL: test_cases/q2/food_price1.test
+*** 	buyLotsOfFruit must compute the correct cost of the order
+*** 	student result: "0.0"
+*** 	correct result: "12.25"
+*** FAIL: test_cases/q2/food_price2.test
+*** 	buyLotsOfFruit must compute the correct cost of the order
+*** 	student result: "0.0"
+*** 	correct result: "14.75"
+*** FAIL: test_cases/q2/food_price3.test
+*** 	buyLotsOfFruit must compute the correct cost of the order
+*** 	student result: "0.0"
+*** 	correct result: "6.4375"
+*** Tests failed.
+
+### Question q2: 0/1 ###
+
+
+Question q3
+===========
+Welcome to shop1 fruit shop
+Welcome to shop2 fruit shop
+*** FAIL: test_cases/q3/select_shop1.test
+*** 	shopSmart(order, shops) must select the cheapest shop
+*** 	student result: "None"
+*** 	correct result: "&lt;FruitShop: shop1&gt;"
+Welcome to shop1 fruit shop
+Welcome to shop2 fruit shop
+*** FAIL: test_cases/q3/select_shop2.test
+*** 	shopSmart(order, shops) must select the cheapest shop
+*** 	student result: "None"
+*** 	correct result: "&lt;FruitShop: shop2&gt;"
+Welcome to shop1 fruit shop
+Welcome to shop2 fruit shop
+Welcome to shop3 fruit shop
+*** FAIL: test_cases/q3/select_shop3.test
+*** 	shopSmart(order, shops) must select the cheapest shop
+*** 	student result: "None"
+*** 	correct result: "&lt;FruitShop: shop3&gt;"
+*** Tests failed.
+
+### Question q3: 0/1 ###
+
+
+Finished at 23:39:51
+
+Provisional grades
+==================
+Question q1: 0/1
+Question q2: 0/1
+Question q3: 0/1
+------------------
+Total: 0/3
+
+Your grades are NOT yet registered.  To register your grades, make sure
+to follow your instructor's guidelines to receive credit on your project.
+</pre>
+</div>
+<p>For each of the three programming questions, this shows the results of that question's tests, the question's grade, and a final summary at the end. Because you haven't yet solved the questions, all the tests fail. As you solve each question you may find some tests pass while other fail. When all tests pass for a question, you get full marks.</p>
+<p>Looking at the results for question 1, you can see that it has failed three tests with the error message "add(a,b) must return the sum of a and b". The answer your code gives is always 0, but the correct answer is different. We'll fix that in the next step.</p>
+
+<hr>
+
+<h3><a name="Q1"></a>Question 1: Addition</h3>
+<p>Open <code>addition.py</code> and look at the definition of <code>add</code>:</p>
+<div class="code_snippet">
+<pre>    def add(a, b):
+        "Return the sum of a and b"
+        "*** YOUR CODE HERE ***"
+        return 0
+</pre>
+</div>
+<p>The tests called this with <code>a</code> and <code>b</code> set to different values, but the code always returned zero. Modify this definition to read:</p>
+<div class="code_snippet">
+<pre>    def add(a, b):
+        "Return the sum of a and b"
+        print "Passed a=%s and b=%s, returning a+b=%s" % (a,b,a+b)
+        return a+b
+</pre>
+</div>
+<p>Now rerun the autograder (omitting the results for questions 2 and 3):</p>
+<div class="code_snippet">
+<pre>[name.no@stdlinux ~/0-tutorial]$ python autograder.py -q q1
+Starting on 1-21 at 23:52:05
+
+Question q1
+===========
+Passed a=1 and b=1, returning a+b=2
+*** PASS: test_cases/q1/addition1.test
+*** 	add(a,b) returns the sum of a and b
+Passed a=2 and b=3, returning a+b=5
+*** PASS: test_cases/q1/addition2.test
+*** 	add(a,b) returns the sum of a and b
+Passed a=10 and b=-2.1, returning a+b=7.9
+*** PASS: test_cases/q1/addition3.test
+*** 	add(a,b) returns the sum of a and b
+
+### Question q1: 1/1 ###
+
+Finished at 23:41:01
+
+Provisional grades
+==================
+Question q1: 1/1
+Question q2: 0/1
+Question q3: 0/1
+------------------
+Total: 1/3
+
+</pre>
+</div>
+<p>You now pass all tests, getting full marks for question 1. Notice the new lines "Passed a=..." which appear before "*** PASS: ...". These are produced by the print statement in <code>add</code>. You can use print statements like that to output information useful for debugging. You can also run the autograder with the option <code>--mute</code> to temporarily hide such lines, as follows:</p>
+<div class="code_snippet">
+<pre>[name.no@stdlinux ~/0-tutorial]$ python autograder.py -q q1 --mute	
+Starting on 1-22 at 14:15:33
+
+Question q1
+===========
+*** PASS: test_cases/q1/addition1.test
+*** 	add(a,b) returns the sum of a and b
+*** PASS: test_cases/q1/addition2.test
+*** 	add(a,b) returns the sum of a and b
+*** PASS: test_cases/q1/addition3.test
+*** 	add(a,b) returns the sum of a and b
+
+### Question q1: 1/1 ###
+
+</pre>
+</div>
+
+<hr>
+
+<h3><a name="Q2"></a>Question 2: buyLotsOfFruit function</h3>
+<p>Add a <code>buyLotsOfFruit(orderList)</code> function to <code>buyLotsOfFruit.py</code> which takes a list of <code>(fruit,pound)</code> tuples and returns the cost of your list. If there is some <code>fruit</code> in the list which doesn't appear in <code>fruitPrices</code> it should print an error message and return <code>None</code>. Please do not change the <code>fruitPrices</code> variable.</p>
+<p>Run <code>python autograder.py</code> until question 2 passes all tests and you get full marks. Each test will confirm that <code>buyLotsOfFruit(orderList)</code> returns the correct answer given various possible inputs. For example, <code>test_cases/q2/food_price1.test</code> tests whether:</p>
+<div class="code_snippet"><code>Cost of [('apples', 2.0), ('pears', 3.0), ('limes', 4.0)] is 12.25</code></div>
+<!--<p>Once your code passes all tests, <b>submit your code through the right most tab, to register your grades with us</b>. Verify that our autograder gives the same output as yours.</p>-->
+
+<hr>
+
+<h3><a name="Q3"></a> Question 3: shopSmart function</h3>
+<p>Fill in the function <code>shopSmart(orders,shops)</code> in <code>shopSmart.py</code>, which takes an <code>orderList</code> (like the kind passed in to <code>FruitShop.getPriceOfOrder</code>) and a list of <code>FruitShop</code> and returns the <code>FruitShop</code> where your order costs the least amount in total. Don't change the file name or variable names, please. Note that we will provide the <code>shop.py</code> implementation as a "support" file, so you don't need to submit yours.</p>
+<p>Run <code>python autograder.py</code> until question 3 passes all tests and you get full marks. Each test will confirm that <code>shopSmart(orders,shops)</code> returns the correct answer given various possible inputs. For example, with the following variable definitions:</p>
+<div class="code_snippet">
+<pre>orders1 = [('apples',1.0), ('oranges',3.0)]
+orders2 = [('apples',3.0)]       
+dir1 = {'apples': 2.0, 'oranges':1.0}
+shop1 =  shop.FruitShop('shop1',dir1)
+dir2 = {'apples': 1.0, 'oranges': 5.0}
+shop2 = shop.FruitShop('shop2',dir2)
+shops = [shop1, shop2]
+</pre>
+</div>
+<p><code>test_cases/q3/select_shop1.test</code> tests whether:</p>
+<div class="code_snippet"><p><code>shopSmart.shopSmart(orders1, shops) == shop1 </code></p></div>
+<p>and <code>test_cases/q3/select_shop2.test</code> tests whether:</p>
+<div class="code_snippet"><p><code>shopSmart.shopSmart(orders2, shops) == shop2 </code></p></div>
+<!--<p>Once your code passes all tests, <b>submit your code through the right most tab, to register your grades with us</b>. Verify that our autograder gives the same output as yours.</p>-->
+
+<hr>
+
+<h3><a name="Q4"></a> Question 4: Posting on Slack</h3>
+<p>Join the <a href="https://osu-cse-3521.slack.com">CSE 3521 Slack team</a> (use the &quot;If you have an @osu.edu email address, you can create an account&quot; link at the bottom of the page;
+ sign up with <i>name.#@osu.edu</i>, not <i>name.#@buckeyemail.osu.edu</i>).</p>
+<p>Post a message in the <code>#introductions</code> channel with the following information:</p>
+<ul>
+    <li>Your name and preferred pronunciation</li>
+    <li>Preferred pronouns (e.g., &quot;he/his&quot;, &quot;she/her&quot;, &quot;they/their&quot;, etc)</li>
+    <li>What are you most interested in about AI?</li>
+    <li>Favorite hobby (so I know what to use for examples in class :-) )</li>
+</ul>
+
+<hr>
+
+<h3>Submission</h3>
+<p>To submit your code for Questions 1-3, please zip up <code>addition.py</code>, <code>buyLotsOfFruit.py</code>, and <code>shopSmart.py</code>, and submit the zip file <a href="https://osu.instructure.com/courses/26510/assignments/434491">via Carmen</a>.  For question 4, post on Slack.</p>
+
+
+        </div>
+
+        <div class="footer">
+            Adapted from <a href="http://ai.berkeley.edu/">CS 188 materials from AI at Berkeley</a>
+        </div>
+
+        <!-- jQuery -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+
+        <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>-->
+        <!-- Page-specific -->
+        <script type="text/javascript" src="../scripts.js"></script>
+    </body>
+</html>
