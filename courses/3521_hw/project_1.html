@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <title>OSU CSE 3521 Sp19</title>
+
+        <!-- Bootstrap -->
+        <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="../bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
+
+        <!-- Page-specific styles -->
+        <link rel="stylesheet" href="../styles.css" type="text/css" />
+    </head>
+
+    <body id="homework0">
+
+<div class="container first-below-navbar">
+
+<div class="homework-title">
+    <h3>Project 1: Search (due 01/25)</h3>
+</div>
+
+    <div class="project">
+      <h3><a name="Introduction"></a>Introduction</h3>
+      <p>In this project, your Pacman agent will find paths through his maze world, both to reach a particular location and to collect food efficiently. You will build general search algorithms and apply them to Pacman scenarios.</p>
+      <p>As in Homework 0, this project includes an autograder for you to grade your answers on your machine. This can be run with the command:</p>
+      <pre>python autograder.py</pre>
+      <p>See the autograder tutorial in Homework 0 for more information about using the autograder.</p>
+      <p>The code for this project consists of several Python files, some of which you will need to read and understand in order to complete the assignment, and some of which you can ignore. You can download all of the files for this homework as a zip archive: <a href="../resources/1-search-v2.zip">1-search.zip</a>. Unzip this file and examine its contents:</p>
+      <p><b>Files you'll edit:</b></p>
+      <ul>
+        <li><code>uninformed_search.py</code>: Where your algorithms for uninformed search (Questions 1-3) will reside.</li>
+        <li><code>astar_search.py</code>: Where your A* and heuristic implementations (Questions 4-5) will live.</li>
+        <li><code>multiAgents.py</code>: Where your minimax and alpha-beta pruning implementations (Questions 6-7) will live.</li>
+      </ul>
+      <p><b>Files you'll want to take a look at:</b></p>
+      <ul>
+        <li><code>search.py</code>: Where the structure of a search problem is defined.</li>
+        <li><code>searchAgents.py</code>: Where all search-based agents are defined.</li>
+        <li><code>util.py</code>: Useful data structures you'll need for defining search algorithms.</li>
+      </ul>
+      <p><b>Supporting files you can ignore (unless you're curious):</b></p>
+      <ul>
+          <li><code>pacman.py</code>: The main file that runs Pacman games. This file describes a Pacman GameState type, which you use in this project.</li>
+          <li><code>game.py</code>: The logic behind how the Pacman world works. This file describes several supporting types like AgentState, Agent, Direction, and Grid.</li>
+          <li><code>graphicsDisplay.py</code>: Graphics for Pacman</li>
+          <li><code>graphicsUtils.py</code>: Support for Pacman graphics</li>
+          <li><code>textDisplay.py</code>: ASCII graphics for Pacman</li>
+          <li><code>ghostAgents.py</code>: Agents to control ghosts</li>
+          <li><code>keyboardAgents.py</code>: Keyboard interfaces to control Pacman</li>
+          <li><code>layout.py</code>: Code for reading layout files and storing their contents</li>
+          <li><code>autograder.py</code>: Project autograder</li>
+          <li><code>testParser.py</code>: Parses autograder test and solution files</li>
+          <li><code>testClasses.py</code>: General autograding test classes</li>
+          <li><code>test_cases/</code>:Directory containing the test cases for each question</li>
+          <li><code>searchTestClasses.py</code>: Homework 1 specific autograding test classes</li>
+      </ul>
+      <p></p>
+      <p><strong>Files to Edit and Submit:</strong> You will fill in portions of <code>uninformed_search.py</code> (for Questions 1-3), <code>astar_search.py</code> (for Questions 4-5), and <code>multiAgents.py</code> (Questions 6-7) during the assignment.  Submission instructions will be posted soon.</p>
+      <p><strong>Evaluation:</strong> Your code will be autograded for technical correctness. Please <em>do not</em> change the names of any provided functions or classes within the code, or you will wreak havoc on the autograder. However, the correctness of your implementation -- not the autograder's judgements -- will be the final judge of your score. If necessary, I will review and grade assignments individually to ensure that you receive due credit for your work.</p>
+      <p><strong>Academic Dishonesty:</strong> We will be checking your code against other submissions in the class for logical redundancy. If you copy someone else's code and submit it with minor changes, I will know. I trust you all to submit your own work only; <em>please</em> don't let me down. If you do, I will pursue the strongest consequences available to me.</p>
+      <p><strong>Getting Help:</strong> You are not alone! If you find yourself stuck on something, feel free to email me or come to office hours (listed on <a href="../index.html">the course webpage</a>.. Office hours and discussion on Slack are there for your support; please use them. I want these projects to be rewarding and instructional, not frustrating and demoralizing. But, I don't know when or how to help unless you ask!</p>
+      <p><strong>Discussion on Slack:</strong> Please be careful not to post spoilers.</p>
+    </div>
+
+    <hr/>
+
+    <div class="project">
+      <h3><a name="Welcome"></a>Welcome to Pacman</h3>
+      <p>After downloading the code (<code><a href="../resources/1-search-updated.zip">1-search.zip</a></code>), unzipping it, and changing to the directory, you should be able to play a game of Pacman by typing the following at the command line:</p>
+      <pre>python pacman.py</pre>
+      <p>Pacman lives in a shiny blue world of twisting corridors and tasty round treats. Navigating this world efficiently will be Pacman's first step in mastering his domain.</p>
+      <p>The simplest agent in <code>searchAgents.py</code> is called the <code>GoWestAgent</code>, which always goes West (a trivial reflex agent). This agent can occasionally win:</p>
+      <pre>python pacman.py --layout testMaze --pacman GoWestAgent</pre>
+      <p>But, things get ugly for this agent when turning is required:</p>
+      <pre>python pacman.py --layout tinyMaze --pacman GoWestAgent</pre>
+      <p>If Pacman gets stuck, you can exit the game by typing CTRL-c into your terminal.</p>
+      <p>Soon, your agent will solve not only <code>tinyMaze</code>, but any maze you want.</p>
+      <p>Note that <code>pacman.py</code> supports a number of options that can each be expressed in a long way (e.g., <code>--layout</code>) or a short way (e.g., <code>-l</code>). You can see the list of all options and their default values via:</p>
+      <pre>python pacman.py -h</pre>
+      <p>Also, all of the commands that appear in this project also appear in <code>commands.txt</code>, for easy copying and pasting. In UNIX/Mac OS X, you can even run all these commands in order with <code>bash commands.txt</code>.</p>
+      <p>Note: if you get error messages regarding Tkinter, see <a href="http://tkinter.unpythonic.net/wiki/How_to_install_Tkinter">this page</a>.</p>
+    </div>
+
+    <hr/>
+
+    <div class="project">
+        <h3><a name="Tips"></a>Important Tips</h3>
+        <p>Keep these things in mind while working on your solutions!</p>
+        <ul>
+            <li>All of your search functions need to return a <b>list of actions</b> that will lead the agent from the start to the goal. These actions all have to be legal moves (valid directions, no moving through walls).</li>
+            <li>Make sure to <b>use</b> the <code>Stack</code>, <code>Queue</code> and <code>PriorityQueue</code> data structures provided to you in <code>util.py</code>! These data structure implementations have particular properties which are required for compatibility with the autograder.</li>
+            <li>Get familiar with the methods in the <code>SearchProblem</code> class in <code>search.py</code>!  You'll need to <b>use these methods</b> as part of your search implementations.</li>
+            <li>Remember that lists in Python are passed by reference; if you're seeing actions show up in a list that shouldn't be there, <b>make sure you're copying your actions to a new list every time</b>!</li>
+            <li><b>The autograder is not the final word!</b> It is very possible to correctly implement these algorithms, but have the autograder consider it wrong because you didn't use the right data structures or methods.  Final grades will be assigned by examining your implementation, not just using the autograder output.</li>
+        </ul>
+    </div>
+
+    <div class="project">
+      <h3><a name="Q1"></a>Question 1 (3 points): Finding a Fixed Food Dot using Depth First Search</h3>
+      <p>In <code>searchAgents.py</code>, you'll find a fully implemented <code>SearchAgent</code>, which plans out a path through Pacman's world and then executes that path step-by-step. The search algorithms for formulating a plan are not implemented -- that's your job.</p>
+      <p>First, test that the <code>SearchAgent</code> is working correctly by running:</p>
+      <pre>python pacman.py -l tinyMaze -p SearchAgent -a fn=tinyMazeSearch</pre>
+      <p>The command above tells the <code>SearchAgent</code> to use <code>tinyMazeSearch</code> as its search algorithm, which is implemented in <code>search.py</code>. Pacman should navigate the maze successfully.</p>
+      <p>Now it's time to write full-fledged generic search functions to help Pacman plan routes! Pseudocode for the search algorithms you'll write can be found in the lecture slides. Remember that a search node must contain not only a state but also the information necessary to reconstruct the path (action sequence) which gets to that state.</p>
+      <p><em>Hint:</em> Each algorithm is very similar. Algorithms for DFS, BFS, UCS, and A* differ only in the details of how the fringe is managed. So, concentrate on getting DFS right and the rest should be relatively straightforward. Indeed, one possible implementation requires only a single generic search method which is configured with an algorithm-specific queuing strategy. (Your implementation need <em>not</em> be of this form to receive full credit).</p>
+      <p>Implement the depth-first search (DFS) algorithm in the <code>depthFirstSearch</code> function in <code>uninformed_search.py</code>.</p></p>
+      <p><b><em>Important note:</em></b> Make sure that you implement the graph search version of DFS, which avoices expanding any already visited states.  Otherwise your implementation may run infinitely!</p>
+      <p>Your code should quickly find a solution for:</p>
+      <pre>python pacman.py -l tinyMaze -p SearchAgent</pre>
+      <pre>python pacman.py -l mediumMaze -p SearchAgent</pre>
+      <pre>python pacman.py -l bigMaze -z .5 -p SearchAgent</pre>
+      <p>The Pacman board will show an overlay of the states explored, and the order in which they were explored (brighter red means earlier exploration). Is the exploration order what you would have expected? Does Pacman actually go to all the explored squares on his way to the goal?</p>
+      <p><em>Hint:</em> If you use a <code>Stack</code> as your data structure, the solution found by your DFS algorithm for <code>mediumMaze</code> should have a length of 130 (provided you push successors onto the fringe in the order provided by getSuccessors; you might get 246 if you push them in the reverse order). Is this a least cost solution? If not, think about what depth-first search is doing wrong.</p>
+    </div>
+
+    <hr/>
+
+    <div class="project">
+      <h3><a name="Q2"></a>Question 2 (3 points): Breadth First Search</h3>
+      <p>Implement the breadth-first search (BFS) algorithm in the <code>breadthFirstSearch</code> function in <code>uninformed_search.py</code>. Again, write a graph search algorithm that avoids expanding any already visited states. Test your code the same way you did for depth-first search.</p>
+      <pre>python pacman.py -l mediumMaze -p SearchAgent -a fn=bfs</pre>
+      <pre>python pacman.py -l bigMaze -p SearchAgent -a fn=bfs -z .5</pre>
+      <p>Does BFS find a least cost solution? If not, check your implementation.</p>
+      <p><em>Hint:</em> If Pacman moves too slowly for you, try the option <code>--frameTime 0</code>.</p>
+      <p><em>Note:</em> If you've written your search code generically, your code should work equally well for the eight-puzzle search problem without any changes.</p>
+      <pre>python eightpuzzle.py</pre>
+    </div>
+
+    <hr/>
+
+    <div class="project">
+      <h3><a name="Q3"></a>Question 3 (4 points): Uniform Cost Search</h3>
+      <p>While BFS will find a fewest-actions path to the goal, we might want to find paths that are "best" in other senses. Consider <code>mediumDottedMaze</code>, where food is concentrated
+        in the eastern half of the map, and <code>mediumScaryMaze</code>, where that side of the map is full of ghosts.</p>
+      <p>By changing the cost function, we can encourage Pacman to find different paths through the maze. For example, we can charge more for steps in the eastern half of the map when it's
+        full of dangerous ghosts, and less when it's full of tasty pellets, and a rational Pacman agent should adjust its behavior in response.</p>
+
+      <p>Implement the uniform-cost graph search algorithm in the <code>uniformCostSearch</code> function in <code>uninformed_search.py</code>.</p>
+      <p><em>Hint:</em> Look through <code>util.py</code> for some data structures that may be useful in your implementation.</p>
+      <p>You should now observe &quot;successful&quot; behavior (i.e., Pacman taking the sensible route) in all three of the following layouts, where the agents below are all UCS agents that differ only in the cost function they use (the agents and cost functions are written for you):</p>
+      <pre>python pacman.py -l mediumMaze -p SearchAgent -a fn=ucs</pre>
+      <pre>python pacman.py -l mediumDottedMaze -p StayEastSearchAgent</pre>
+      <pre>python pacman.py -l mediumScaryMaze -p StayWestSearchAgent</pre>
+      <p>Try switching the agents:</p>
+      <pre>python pacman.py -l mediumDottedMaze -p StayWestSearchAgent</pre>
+      <pre>python pacman.py -l mediumScaryMaze -p StayEastSearchAgent</pre>
+      <p>Is Pacman behaving the way we'd like him to?  What does this say about the importance of choosing a good cost function for UCS?</p>
+      <p><em>Note:</em> You should get very low and very high path costs for the <code>StayEastSearchAgent</code> and <code>StayWestSearchAgent</code> respectively, due to their exponential cost functions (see <code>searchAgents.py</code> for details).</p>
+    </div>
+
+    <hr/>
+
+<h3>Submission</h3>
+<p>Please zip up <code>uninformed_search.py</code> and submit the zip file <a href="https://osu.instructure.com/courses/26510/assignments/434491">via Carmen</a>.</p>
+
+        </div>
+
+        <div class="footer">
+            Adapted from <a href="http://ai.berkeley.edu/">CS 188 materials from AI at Berkeley</a>
+        </div>
+
+        <!-- jQuery -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+
+        <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>-->
+        <!-- Page-specific -->
+        <script type="text/javascript" src="../scripts.js"></script>
+    </body>
+</html>
