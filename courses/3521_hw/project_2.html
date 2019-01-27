@@ -96,7 +96,7 @@
     </div>
 
     <div class="project">
-      <h3><a name="Q4"></a>Question 4 (3 points): A* search</h3>
+      <h3><a name="Q4"></a>Question 4 (5 points): A* search</h3>
       <p>Implement A* graph search in the empty function <code>aStarSearch</code> in <code>astar_search.py</code>. A* takes a heuristic function as an argument. Heuristics take two arguments: a state in the search problem (the main argument), and the problem itself (for reference information). The <code>nullHeuristic</code> heuristic function in <code>astar_search.py</code> is a trivial example.</p>
       <p>You can test your A* implementation on the original problem of finding a path through a maze to a fixed position using the Manhattan distance heuristic (implemented already as <code>manhattanHeuristic</code> in <code>astar_search.py</code>).</p>
       <pre>python pacman.py -l bigMaze -z .5 -p SearchAgent -a fn=astar,heuristic=manhattanHeuristic</pre>
@@ -106,7 +106,7 @@
     <hr/>
 
     <div class="project">
-      <h3><a name="Q5"></a>Question 5 (4 points): Eating All The Dots</h3>
+      <h3><a name="Q5"></a>Question 5 (5 points): Eating All The Dots</h3>
       <p><i>Note: Make sure to complete Question 4 before working on Question 5, because Question 5 builds upon your answer for Question 4.</i></p>
       <p>Now we'll solve a hard search problem: eating all the Pacman food in as few steps as possible. For this, we'll need a new search problem definition which formalizes the food-clearing problem: <code>FoodSearchProblem</code> in <code>searchAgents.py</code> (implemented for you). A solution is defined to be a path that collects all of the food in the Pacman world. For the present project, solutions do not take into account any ghosts or power pellets; solutions only depend on the placement of walls, regular food and Pacman. (Of course ghosts can ruin the execution of a solution! We'll get to that in the next question.) If you have written your general search methods correctly, <code>A*</code> with a null heuristic (equivalent to uniform-cost search) should quickly find an optimal solution to <code>testSearch</code> with no code change on your part (total cost of 7).</p>
       <pre>python pacman.py -l testSearch -p AStarFoodSearchAgent</pre>
