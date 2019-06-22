@@ -1,0 +1,6 @@
+@inproceedings{lan2019deepi2t,
+  title={Travel Time Estimation without Road Networks: An Urban Morphological Layout Representation Approach},
+  author={Lan, Wuwei and Xu Yanyan and Zhao, Bin},
+  booktitle={Proceedings of the Twenty-Eighth International Joint Conference on Artificial Intelligence (IJCAI-2019)},
+  year={2019}
+}
