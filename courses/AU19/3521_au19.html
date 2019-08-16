@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>CSE 3521 Survey of Artificial Intelligence I: Basic Techniques</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="./3521_sp19_files/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="./3521_sp19_files/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="https://cocoxu.github.io/bootstrap-3.2.0-dist/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://cocoxu.github.io/bootstrap-3.2.0-dist/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://cocoxu.github.io/bootstrap-3.2.0-dist/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://cocoxu.github.io/bootstrap-3.2.0-dist/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="https://cocoxu.github.io/bootstrap-3.2.0-dist/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+
+    <div class="container">
+
+<div id="Content">
+    <h1>CSE 3521 Survey of Artificial Intelligence I: Basic Techniques</h1>
+
+
+<p>
+  This course will introduce the basic ideas and techniques underlying the design of intelligent computer systems.
+</p>
+    </div>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Details</div>
+
+<ul class="list-group">
+<li class="list-group-item">Monday, Wednesday and Friday, 10:20am - 11:15am</li>
+<li class="list-group-item">Place: <a href="https://www.google.com/maps/place/Cunz+Hall,+1841+Neil+Ave,+Columbus,+OH+43210/@39.9986803,-83.0192191,17z/data=!3m1!4b1!4m5!3m4!1s0x88388e9503f3f6dd:0x3fe3d6ba070b729b!8m2!3d39.9986803!4d-83.0170304"> Cunz Hall </a> 160</li>
+<li class="list-group-item">Instructor: <a href="https://lanwuwei.github.io/">Wuwei Lan</a> (Office Hours: Monday, Wednesday and Friday, 11:30am - 11:59am & 4:00pm - 5:00pm, Baker 480C) </li>
+<li class="list-group-item">TA: <a href="mailto: liang.653@osu.edu">Chen Liang</a></li>
+
+</ul>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">Textbook</div>
+<ul class="list-group">
+  <li class="list-group-item">1. Stuart Russell and Peter Norvig.  <a href="http://aima.cs.berkeley.edu/">Artificial Intelligence: A Modern Approach (3rd Edition)</a>, Prentice Hall, 2009. Here is a <a href="https://www.cin.ufpe.br/~tfl2/artificial-intelligence-modern-approach.9780131038059.25368.pdf">pdf</a> file. </li>
+  <li class="list-group-item">2. Kevin Murphy  <a href="https://www.cs.ubc.ca/~murphyk/MLbook/index.html">Machine Learning: a Probabilistic Perspective</a>. Here is a <a href="https://doc.lagout.org/science/Artificial%20Intelligence/Machine%20learning/Machine%20Learning_%20A%20Probabilistic%20Perspective%20%5BMurphy%202012-08-24%5D.pdf">pdf</a> file.</li>
+  </ul></div>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Grading</div>
+
+  <div class="panel-body">
+    <p> </p>
+      <h4>Homeworks (20%)</h4>
+      Written homeworks will be very short (one or two exam-style questions) and will be graded in a good/mediocre/incomplete basis. You should be prepared to do regular work each week to keep up with the material and the assignments. The instructor will collect the homework in the classroom. Homework assignments may <b>NOT</b> be turned in late. Homeworks are <b>NOT</b> accepted by email.
+
+      <h4>Projects (30%)</h4>
+      Programming projects will be in Python, and should be submitted to <a href="https://carmen.osu.edu/">Carmen</a> by 11:59pm on the day it is due (unless otherwise instructed).  Each student will have 3 flexible days to turn in late programming projects throughout the semester.  As an example, you could turn in the first project 2 days late and the second project 1 day late without any penalty.  After that you will loose 20% for each day the project submission is late. Please email your code to the instructor in case there are any technical issues with submission.
+
+      <h4>Midterm (20%)</h4>
+      Midterm exam will be close book and notes. <b>The exam date: Wednesday March 06 10:10am-11:30am</b> <a href="https://lanwuwei.github.io/courses/3521_exam/sample1.pdf">Sample_1</a>(<a href="https://lanwuwei.github.io/courses/3521_exam/sample1_solutions.pdf">Solution_1</a>), <a href="https://lanwuwei.github.io/courses/3521_exam/sample2.pdf">Sample_2</a>(<a href="https://lanwuwei.github.io/courses/3521_exam/sample2_solutions.pdf">Solution_2</a>), and basic <a href="https://mindmajix.com/machine-learning-interview-questions">ML knowledge</a>. Here is midterm <a href="https://lanwuwei.github.io/courses/3521_exam/3521_midterm.pdf">pdf</a> file, where q3 is from Berkeley <a href="https://s3-us-west-2.amazonaws.com/cs188websitecontent/exams/sp14_midterm1_solutions.pdf">midterm</a> in 2014.
+      
+      <h4>Final Exam (30%)</h4>
+      Final exam will be close book and notes. <b>The exam date: Monday Apr 19 10:10am-11:30am</b>. Here is <a href="https://leetcode.com/">LeetCode</a> website. Past <a href="https://inst.eecs.berkeley.edu/~cs188/fa18/final_exam_prep.html">exams</a> for Berkeley CS188.
+      
+      <br>
+      <br>
+      
+      <b>Grading Scale</b>: Numerical grades will be mapped to letter grades using the standard OSU policy: 93-100 (A), 90-92.9 (A-), 87-89.9 (B+), 83-86.9 (B), 80-82.9 (B-), 77-79.9 (C+), 73-76.9 (C), 70-72.9 (C-), 67-69.9 (D+), 60-66.9 (D), below 60 (E). These cutoffs represent grade minimums. We may adjust grades upward based on class grade distribution curve.
+      <br>
+      <br>      
+      <b>Regrade Policy</b>: If you believe an error has been made in the grading of your exam, you may resubmit it for a regrade - submit a detailed explanation of which problems you think we marked incorrectly and why. Because we will examine your entire submission in detail, your grade can go up or down as a result of a regrade request.
+      <br>
+      <br>
+      <b>Drop or Withdraw</b>: detailed OSU policy and instructions <a href="http://advising.osu.edu/drop_class.shtml">here</a> 
+    <p></p>
+  </div>
+</div>
+
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Resources</div>
+
+  <div class="panel-body">
+    <list>
+      <li><a href="https://piazza.com/osu/spring2019/cse3521"><b>Piazza</b></a><b> (QA, discussion, and announcements)</b> </li>
+      <li><a href="https://carmen.osu.edu/"><b>Carmen</b></a> (project submission and restricted resources)</li>
+    </list>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Academic Integrity</div>
+
+  <div class="panel-body">
+    <list>
+      Any assignment or exam that you hand in must be your own work (with the exception of group projects). However, talking with others to better understand the material is strongly encouraged. Copying a solution or letting someone copy your solution is cheating.  Everything you hand in must be your own words.  Code you hand in must be written by you, with the exception of any code provided as part of the assignment.  <a href="http://www-edlab.cs.umass.edu/cs230/weeks/w01/moss-in-practice.pdf">MOSS (Measure of Software Similarity)</a> will be used routinely to detect plagiarism on programming assignments. Any collaboration during an exam is considered cheating.  Any student who is caught cheating will be reported to the Committee on Academic Misconduct.  Please don't take a chance - if you are having trouble understanding the material, let us know (asking on Piazza, in class or during office hours), and we will be happy to help.
+    </list>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Programming Projects</div>
+
+  <div class="panel-body">
+    <list>
+      <li><a href="https://lanwuwei.github.io/courses/3521_hw/project_0.html"> Project 0</a> - Python Tutorial (due 01/14)</li>
+      <li><a href="https://lanwuwei.github.io/courses/3521_hw/project_1.html">Project 1</a> - Uninformed Search (due 01/25)</li> 
+     <li><a href="https://lanwuwei.github.io/courses/3521_hw/project_2.html">Project 2</a> - Informed Search (due 02/04)</li> 
+     <li><a href="https://lanwuwei.github.io/courses/3521_hw/project_3.html">Project 3</a> - Machine Learning (due 03/22)</li> 
+    </list>
+  </div>
+</div>
+
+
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Homework Assignments (subject to change as the spring 2019 term progresses.)</div>
+
+  <div class="panel-body">
+    <list>
+      <li><a href="https://www.guru99.com/python-tutorials.html">Homework 0 - Learn Python Programming in 7 Days</a> (practice)</li>
+      <li><a href="https://lanwuwei.github.io/courses/3521_hw/homework_1.pdf">Homework 1 - 	Constraint Satisfaction Problems</a> (due 02/15 <a href="https://lanwuwei.github.io/courses/3521_hw/homework_1_soln.pdf">Solutions</a>)</li>
+      <li><a href="https://scikit-learn.org/stable/modules/naive_bayes.html">Homework 2 - Naive Bayes in scikit-learn</a> (practice)</li>
+      <li><a href="https://github.com/Kulbear/deep-learning-coursera/blob/master/Convolutional%20Neural%20Networks/Convolution%20model%20-%20Application%20-%20v1.ipynb">Homework 3 - Learn TensorFlow, modify the CNN architecture into AlexNet and beat original performance</a>  (due 04/17), here is <a href="https://github.com/shaoanlu/deeplearning.ai-Convolutional-Neural-Networks/files/2162974/cnn_utils.zip">cnn_utils</a> file and <a href="https://github.com/tejaslodaya/keras-signs-resnet/tree/master/datasets">dataset</a> file.</li>
+    </list>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Anonymous Feedback</div>
+  <div class="panel-body">
+    <list>
+      <a href="https://docs.google.com/forms/d/1PHFw6PjSa6FeTat_oyA2q0DrHoCcXLQh8AxMPTMmMVk/viewform?edit_requested=true">Let's make this course better!</a>
+    </list>
+  </div>  
+</div>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Schedule (The slides are adapted from <a href="https://inst.eecs.berkeley.edu/~cs188/fa18/index.html">Berkeley CS 188</a>, <a href="https://cocoxu.github.io/courses/5525_spring17.html">OSU CSE 5525</a>, <a href="http://aritter.github.io/courses/5523_fall18.html">OSU CSE 5523</a> and <a href="http://slazebni.cs.illinois.edu/spring17/">UIUC CS 598</a>.) </div>
+
+  <!-- Table -->
+  <table class="table">
+      <thead>
+	<tr>
+	  <th>Date</th>
+	  <th>Topic</th>
+	  <th>Required Reading</th>
+	  <th>Further Reading</th>
+	</tr>
+      </thead>
+    <tbody><tr>
+      <td>01/07</td>
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/1-Introduction.pdf">Introduction</a></td>
+        <td>Textbook-1: 1.1-1.3</td>
+      <td><a href="http://jmc.stanford.edu/artificial-intelligence/what-is-ai/index.html">What is AI? / Basic Questions</a></td>
+      
+    </tr><tr>
+      <td>01/09</td>
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/2-Intelligent-Agents.pdf">Intelligent Agents</a></td>
+      <td>Textbook-1: 2.3-2.4</td>
+      <td><a href="https://techcrunch.com/2017/12/18/carnegie-mellons-superhuman-ai-bests-leading-texas-holdem-poker-pros/">Libratus</a></td>
+      
+    </tr>
+   <tr>
+      <td>01/11</td>
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/3-Uninformed-Search_1.pdf">Uninformed Search-1</a></td>
+      <td>Textbook-1: 3.1-3.4</td>
+      <td><a href="https://pythoninwonderland.wordpress.com/2017/03/18/how-to-implement-breadth-first-search-in-python/">BFS in Python</a></td>
+      
+    </tr>
+    
+    <tr>
+      <td>01/14</td>
+     <td><a href="https://lanwuwei.github.io/courses/3521_slides/3-Uninformed-Search_2.pdf">Uninformed Search-2</a></td>
+      <td>Textbook-1: 3.5</td>
+      <td><a href="https://algocoding.wordpress.com/2014/08/25/depth-first-search-java-and-python-implementation/">DFS in Java and Python</a></td>
+    </tr>
+    
+    <tr>
+      <td>01/16</td>
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/4-Informed-Search_1.pdf">Informed Search-1</a></td>
+      <td>Textbook-1: 4.2</td>
+      <td></td>
+    </tr>
+    
+     <tr>
+      <td>01/18</td>
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/4-Informed-Search_2.pdf">Informed Search-2</a></td>
+      <td>Textbook-1: 4.1</td>
+      <td><a href="https://medium.com/omarelgabrys-blog/path-finding-algorithms-f65a8902eb40">Path Finding Algorithms</a></td>
+    </tr>
+    
+    <tr>
+      <td>01/21</td>
+      <td>no class (MLK Day)</td>
+      <td></td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td>01/23</td>
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/4-Informed-Search_3.pdf">Informed Search-3</a> (<a href="https://lanwuwei.github.io/courses/3521_slides/4-Informed-Search_3.pptx">PPTX</a>)</td>
+      <td></td>
+      <td><a href="https://cs.stackexchange.com/questions/30778/why-is-the-a-search-heuristic-optimal-even-if-it-underestimates-costs">Optimality of A*</a></td>
+    </tr>
+    
+    <tr>
+      <td>01/25</td>
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/2016_EMNLP_Jeniya.pdf">Talk</a> by <a href="https://sites.google.com/site/jeniyatabassum/">Jeniya Tabassum</a></td>
+      <td></td>
+      <td></td>
+    </tr>  
+    
+    <tr>
+      <td>01/28</td>
+       <td><a href="https://lanwuwei.github.io/courses/3521_slides/5-CSP_1.pdf">CSP-1</a></td>
+       <td>Textbook-1: 3.7</td>
+      <td><a href="http://aima.cs.berkeley.edu/newchap05.pdf">Constraint Satisfaction Problems</a></td>
+    </tr>    
+     
+      <tr>
+      <td>01/30</td>
+      <td>no class (Wind Chill)</td>
+      <td></td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td>02/01</td> 
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/5-CSP_2.pdf">CSP-2</a></td>
+      <td></td>
+      <td><a href="http://www-personal.umd.umich.edu/~leortiz/teaching/6.034f/Fall06/csp/csp_notes.pdf">CSP Notes</a> </td>
+    </tr>
+    
+    <tr>
+      <td>02/04</td> 
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/5-CSP_3.pdf">CSP-3</a></td>
+      <td>Textbook-1: 4.4</td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td>02/06</td> 
+      <td>Search Problems Review-1</td>
+      <td></td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td>02/08</td> 
+      <td>Search Problems Review-2</td>
+      <td></td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td>02/11</td> 
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/6-Naive_Bayes_1.pdf">Naive Bayes-1</a></td>
+      <td>Textbook-2: 3.5</td>
+      <td><a href="https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/">Learn Naive Bayes Algorithm</a> </td>
+    </tr>
+    
+    <tr>
+      <td>02/13</td> 
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/6-Naive_Bayes_2.pdf">Naive Bayes-2</a></td>
+      <td></td>
+      <td><a href="https://www.quora.com/What-is-the-difference-between-Maximum-Likelihood-ML-and-Maximum-a-Posteriori-MAP-estimation">ML vs. MAP</a> </td>
+    </tr>
+    
+    <tr>
+      <td>02/15</td> 
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/6-Naive_Bayes_3.pdf">Naive Bayes-3</a></td>
+      <td>Textbook-2: 5.7.2</td>
+      <td><a href="https://stats.stackexchange.com/questions/33185/difference-between-naive-bayes-multinomial-naive-bayes">Multinomial Naive Bayes</a> </td>
+    </tr>
+    
+    <tr>
+      <td>02/18</td> 
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/6-Naive_Bayes_4.pdf">Naive Bayes-4</a></td>
+      <td></td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td>02/20</td> 
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/7-Logistic_Regression_1.pdf">Logistic Regression-1</a></td>
+      <td>Textbook-2: 8.1-8.2</td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td>02/22</td> 
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/7-Logistic_Regression_2.pdf">Logistic Regression-2</a></td>
+      <td>Textbook-2: 8.3</td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td>02/25</td> 
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/7-Logistic_Regression_3.pdf">Logistic Regression-3</a></td>
+      <td></td>
+      <td><a href="https://stackoverflow.com/questions/19129141/naive-bayes-and-logistic-regression-error-rate">NB vs. LR</a></td>
+    </tr>
+    
+    <tr>
+      <td>02/27</td> 
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/8-Decision_Tree-1.pdf">Decision Tree</a></td>
+      <td></td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td>03/01</td> 
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/9-Support_Vector_Machine_1.pdf">Support Vector Machine-1</a> </td>
+      <td></td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td>03/04</td> 
+      <td>no class (Midterm Prepare)</td>
+      <td></td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td>03/06</td> 
+      <td>Midterm</td>
+      <td></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td>03/08</td> 
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/9-Support_Vector_Machine_2.pdf">Support Vector Machine-2</a> </td>
+      <td>Textbook-2: 14.1-14.5</td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td>03/18</td> 
+      <td>Midterm Review</td>
+      <td></td>
+      <td><a href="https://lanwuwei.github.io/courses/3521_exam/3521_midterm_score_statistics.png">Midterm Statistics</a></td>
+    </tr>
+    
+    <tr>
+      <td>03/20</td> 
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/10-Convolutional_Neural_Networks_1.pdf">Convolutional Neural Networks-1</a> </td>
+      <td>Textbook-2: 16.5.1</td>
+     <td><a href="https://ujjwalkarn.me/2016/08/11/intuitive-explanation-convnets/">An Intuitive Explanation of CNN</a></td>
+    </tr>
+    
+    <tr>
+      <td>03/22</td> 
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/10-Convolutional_Neural_Networks_2.pdf">Convolutional Neural Networks-2</a> </td>
+      <td></td>
+     <td><a href="http://colah.github.io/posts/2014-07-Understanding-Convolutions/">Understanding Convolutions</a></td>
+    </tr>
+    
+    <tr>
+      <td>03/25</td> 
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/10-Convolutional_Neural_Networks_3.pdf">Convolutional Neural Networks-3</a> </td>
+      <td></td>
+     <td><a href="https://www.jeremyjordan.me/convnet-architectures/">Case Study: CNN architectures</a></td>
+    </tr>
+    
+    <tr>
+      <td>03/27</td>
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/2018_EMNLP_Mounica.pdf">Talk</a> by <a href="https://mounicam.github.io/">Mounica Maddela</a></td>
+      <td></td>
+      <td></td>
+    </tr> 
+    
+    <tr>
+      <td>03/28</td>
+      <td>Faculty Candidate Talk by <a href="https://scholar.google.com/citations?user=jtotWmwAAAAJ&hl=en">Zahra Atiq</a></td>
+      <td></td>
+      <td></td>
+    </tr> 
+
+    <tr>
+      <td>03/29</td>
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/11-Recurrent_Neural_Networks_1.pdf">Recurrent Neural Networks-1</a></td>
+      <td></td>
+      <td><a href="https://www.analyticsvidhya.com/blog/2019/01/fundamentals-deep-learning-recurrent-neural-networks-scratch-python/">Build RNN from Scratch in Python</a></td>
+    </tr> 
+    
+    <tr>
+      <td>04/01</td>
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/11-Recurrent_Neural_Networks_2.pdf">Recurrent Neural Networks-2</a></td>
+      <td></td>
+      <td><a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/">Understanding LSTM Networks</a></td>
+    </tr> 
+    
+    <tr>
+      <td>04/03</td>
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/11-Recurrent_Neural_Networks_3.pdf">Recurrent Neural Networks-3</a></td>
+      <td></td>
+      <td></td>
+    </tr> 
+    
+    <tr>
+      <td>04/05</td>
+      <td><a href="https://lanwuwei.github.io/courses/3521_slides/12-Deep_Learning_for_NLP.pdf">Deep Learning for NLP</a></td>
+      <td></td>
+      <td></td>
+    </tr> 
+
+    <tr>
+      <td>04/08</td>
+      <td>Machine Learning Review-1</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    
+    <tr>
+      <td>04/10</td>
+      <td>Machine Learning Review-2</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    
+    <tr>
+      <td>04/12</td>
+      <td>Machine Learning Review-3</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    
+    <tr>
+      <td>04/15</td>
+      <td>Machine Learning Review-4</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    
+    <tr>
+      <td>04/19</td>
+      <td>Final</td>
+      <td></td>
+      <td></td>
+    </tr> 
+  </tbody></table>
+</div>
+
+
+</div> <!-- End Content -->
+
+
+    <script src="./3521_sp19_files/bootstrap-min.js"></script>
+
+  
+
+</body></html>
